@@ -17,6 +17,11 @@ public class Main {
             testFile = new File("classes/icon.png");
             if(testFile.exists() && testFile.isFile()){
                 StaticObjects.LOGOICON = "classes/icon.png";
+            }else{
+                testFile = new File("icon.png");
+                if(testFile.exists() && testFile.isFile()){
+                    StaticObjects.LOGOICON = "icon.png";
+                }
             }
         }
         Build.build();
