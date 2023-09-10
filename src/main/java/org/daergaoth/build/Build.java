@@ -79,21 +79,24 @@ public class Build {
             }
         });
 
-        BufferedImage myPicture;
-        try {
-            myPicture = ImageIO.read(new File(StaticObjects.LOGOICON));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if(StaticObjects.LOGOICON.length() > 0){
+            BufferedImage myPicture;
+            try {
+                myPicture = ImageIO.read(new File(StaticObjects.LOGOICON));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            if (Objects.nonNull(myPicture)) {
+                MyLabel picLabel = new MyLabel();
+                picLabel.setupTextField(20, 20, 120, 120);
+                Image image = new ImageIcon(myPicture).getImage();
+                Image newimg = image.getScaledInstance(120, 120, java.awt.Image.SCALE_SMOOTH);
+                ImageIcon imageIcon = new ImageIcon(newimg);
+                picLabel.setIcon(imageIcon);
+                frame.add(picLabel);
+            }
         }
-        if (Objects.nonNull(myPicture)) {
-            MyLabel picLabel = new MyLabel();
-            picLabel.setupTextField(20, 20, 120, 120);
-            Image image = new ImageIcon(myPicture).getImage();
-            Image newimg = image.getScaledInstance(120, 120, java.awt.Image.SCALE_SMOOTH);
-            ImageIcon imageIcon = new ImageIcon(newimg);
-            picLabel.setIcon(imageIcon);
-            frame.add(picLabel);
-        }
+
 
 
         MyLabel keywordLabelLabel = new MyLabel();

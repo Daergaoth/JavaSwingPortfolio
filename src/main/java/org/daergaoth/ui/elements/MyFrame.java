@@ -14,8 +14,10 @@ public class MyFrame extends JFrame {
         this.setSize(1344, 720);
         this.setVisible(true);
 
-        ImageIcon image = new ImageIcon(StaticObjects.LOGOICON);
-        this.setIconImage(image.getImage());
+        if(StaticObjects.LOGOICON.length() > 0){
+            ImageIcon image = new ImageIcon(StaticObjects.LOGOICON);
+            this.setIconImage(image.getImage());
+        }
         this.getContentPane().setBackground(new Color(0x123456));
 
 
