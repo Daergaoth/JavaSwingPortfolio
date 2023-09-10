@@ -6,9 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MyFrame extends JFrame {
-    public MyFrame() throws HeadlessException {
-    }
-
     public void setupDefaultFrame() {
         this.setTitle("File Checker");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
