@@ -136,8 +136,8 @@ public class Build {
         comboBoxContainer = new MyPanel();
         comboBoxContainer.setLayout(null); // added code
         comboBoxContainer.setupTextField(395, 145, 810, 40);
-        String[] choices = {".java", ".html", ".ts", ".js", ".txt", ".xml"};
-        comboBox = new JComboBox<String>(choices);
+        String[] choices = {"any", ".java", ".html", ".ts", ".js", ".txt", ".xml"};
+        comboBox = new JComboBox<>(choices);
         comboBox.setBounds(5, 5, 800, 30);
         comboBox.setAlignmentX(Component.CENTER_ALIGNMENT);// added code
         comboBox.setAlignmentY(Component.BOTTOM_ALIGNMENT);
@@ -174,7 +174,7 @@ public class Build {
                     }
                 }
             } else if (currentFile.isFile()) {
-                boolean shouldICheckFile = Objects.nonNull(comboBox.getSelectedItem()) && currentFile.getName().contains((String) comboBox.getSelectedItem());
+                boolean shouldICheckFile = Objects.nonNull(comboBox.getSelectedItem()) && (comboBox.getSelectedItem().equals("any") || currentFile.getName().contains((String) comboBox.getSelectedItem()));
                 boolean fileAlreadyMatch = false;
                 if (shouldICheckFile) {
                     try (BufferedReader br = new BufferedReader(new FileReader(currentFile))) {
